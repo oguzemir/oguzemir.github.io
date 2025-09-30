@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OGUZ EMIR — Gameplay Animator</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: #fff;
+      color: #222;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+    header h1 {
+      font-size: 28px;
+      letter-spacing: 2px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    nav {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #666;
+    }
+    nav a:hover { color: #000; }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+    }
+    /* GRID yapısı */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .gallery-item {
+      aspect-ratio: 1 / 1; /* kare */
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .gallery-item iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    /* Şeffaf overlay */
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      cursor: pointer;
+      background: transparent;
+      z-index: 2;
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 12px;
+      color: #aaa;
+    }
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-content {
+      width: 90%;
+      max-width: 900px;
+      aspect-ratio: 16/9;
+      background: #000;
+    }
+    .lightbox-content iframe {
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 30px;
+      color: #fff; font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    @media (max-width: 992px) {
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>OGUZ EMIR</h1>
+    <nav>
+      <a href="#reel">Reel</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="portfolio">
+      <div class="gallery">
+        <!-- Aynı video 4 kutuda test -->
+        <div class="gallery-item" data-video="pd09VSTixJA">
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0"
+                  allow="autoplay; fullscreen"></iframe>
+          <div class="overlay"></div>
+        </div>
+        <div class="gallery-item" data-video="pd09VSTixJA">
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0"
+                  allow="autoplay; fullscreen"></iframe>
+          <div class="overlay"></div>
+        </div>
+        <div class="gallery-item" data-video="pd09VSTixJA">
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0"
+                  allow="autoplay; fullscreen"></iframe>
+          <div class="overlay"></div>
+        </div>
+        <div class="gallery-item" data-video="pd09VSTixJA">
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0"
+                  allow="autoplay; fullscreen"></iframe>
+          <div class="overlay"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Oguz Emir — Gameplay Animator
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <div class="lightbox-content">
+      <iframe id="lightbox-video" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script>
+    const items = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxVideo = document.getElementById('lightbox-video');
+    const closeBtn = document.querySelector('.lightbox-close');
+
+    items.forEach(item => {
+      const overlay = item.querySelector('.overlay');
+      overlay.addEventListener('click', () => {
+        const videoId = item.getAttribute('data-video');
+        lightbox.classList.add('active');
+        // Playlist parametresini kaldırdık → hata çıkmaz
+        lightboxVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&rel=0&modestbranding=1`;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      lightboxVideo.src = "";
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        lightboxVideo.src = "";
+      }
+    });
+  </script>
+</body>
+</html>
