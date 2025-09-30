@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OGUZ EMIR — Gameplay Animator</title>
-  <link rel="icon" type="image/png" href="img/favicon.png">
+  
   <style>
     body {
       font-family: "Helvetica Neue", Arial, sans-serif;
@@ -40,6 +40,20 @@
       margin: 0 auto;
       padding: 0 20px 100px;
     }
+    /* Vimeo alanı */
+    .vimeo-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      margin-bottom: 40px;
+    }
+    .vimeo-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
     /* GRID yapısı */
     .gallery {
       display: grid;
@@ -58,7 +72,6 @@
       border: none;
       pointer-events: none; /* YouTube UI’sini tıklanamaz yapar */
     }
-    /* Şeffaf overlay */
     .overlay {
       position: absolute;
       top: 0; left: 0;
@@ -111,45 +124,44 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>OGUZ EMIR</h1>
-    <nav>
-      <a href="#reel">Reel</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
   <main>
+    <!-- Üst yazılar -->
+    <div style="display: flex; justify-content: space-between; padding: 0 10px; margin-top: 80px; color: #222; font-weight: bold; font-size: 20px; letter-spacing: 2px; text-transform: uppercase;">
+      <span>OGUZ EMIR PORTFOLIO</span>
+      <span>ABOUT ME</span>
+    </div>
+    
+    <!-- Büyük Vimeo video -->
+    <section id="reel">
+      <div class="vimeo-wrapper">
+        <iframe src="https://vimeo.com/945492910"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- Altında 4’lü YouTube grid -->
     <section id="portfolio">
       <div class="gallery">
-        <!-- Test için aynı video 4 kutuda -->
         <div class="gallery-item" data-video="pd09VSTixJA">
-          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0&fs=0"
-                  frameborder="0"
-                  allow="autoplay; encrypted-media"
-                  allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0"
+                  allow="autoplay; fullscreen"></iframe>
           <div class="overlay"></div>
         </div>
         <div class="gallery-item" data-video="pd09VSTixJA">
-          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0&fs=0"
-                  frameborder="0"
-                  allow="autoplay; encrypted-media"
-                  allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0"
+                  allow="autoplay; fullscreen"></iframe>
           <div class="overlay"></div>
         </div>
         <div class="gallery-item" data-video="pd09VSTixJA">
-          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0&fs=0"
-                  frameborder="0"
-                  allow="autoplay; encrypted-media"
-                  allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0"
+                  allow="autoplay; fullscreen"></iframe>
           <div class="overlay"></div>
         </div>
         <div class="gallery-item" data-video="pd09VSTixJA">
-          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0&fs=0"
-                  frameborder="0"
-                  allow="autoplay; encrypted-media"
-                  allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0"
+                  allow="autoplay; fullscreen"></iframe>
           <div class="overlay"></div>
         </div>
       </div>
