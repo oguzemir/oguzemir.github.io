@@ -8,8 +8,8 @@
 
   <style>
     body {
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      background: #f3f3f3;
+      font-family: "Bahnschrift", sans-serif;
+      background: rgb(219, 219, 219);
       color: #222;
       margin: 0;
       padding: 0;
@@ -20,7 +20,7 @@
       margin: 0 auto;
       padding: 0 20px 100px;
     }
-    /* Vimeo alanı */
+    /* Vimeo */
     .vimeo-wrapper {
       position: relative;
       padding-bottom: 56.25%; /* 16:9 */
@@ -34,7 +34,7 @@
       height: 100%;
       border: none;
     }
-    /* GRID yapısı */
+    /* GRID */
     .gallery {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -50,7 +50,7 @@
       width: 100%;
       height: 100%;
       border: none;
-      pointer-events: none; /* YouTube UI’sini tıklanamaz yapar */
+      pointer-events: none;
     }
     .overlay {
       position: absolute;
@@ -98,15 +98,27 @@
   </style>
 </head>
 <body>
-
   <main>
-    <!-- Üst yazılar -->
-    <div style="display: flex; justify-content: space-between; padding: 0 10px; margin-top: 80px; color: #222; font-weight: bold; font-size: 20px; letter-spacing: 2px; text-transform: uppercase;">
-      <span>OGUZ EMIR PORTFOLIO</span>
-      <span>ABOUT ME</span>
+    <!-- Üst Yazılar -->
+    <div style="display: flex; justify-content: space-between; padding: 0 0px; margin-top: 80px; color: #585858; font-weight: bold; font-size: 20px; letter-spacing: 0.4px; text-transform: uppercase;">
+      <span class="menu-text">OGUZ EMIR PORTFOLIO</span>
+      <a href="aboutme.html" class="menu-text">ABOUT ME</a>
     </div>
+
+    <style>
+    .menu-text {
+      transition: color 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: #585858;
+    }
+
+    .menu-text:hover {
+      color: #000000; /* Hover olduğunda siyah */
+    }
+    </style>
     
-    <!-- Büyük Vimeo video -->
+    <!-- Header Video -->
     <section id="reel">
       <div class="vimeo-wrapper">
         <iframe src="https://player.vimeo.com/video/945492910"
@@ -115,7 +127,7 @@
       </div>
     </section>
 
-    <!-- Altında 4’lü YouTube grid -->
+    <!-- Works Grid -->
     <section id="portfolio">
       <div class="gallery">
         <div class="gallery-item" data-video="pd09VSTixJA">
@@ -203,10 +215,8 @@
     });
   </script>
 
-
-
-<!-- Sabit Footer -->
-<div id="myFooter" style="
+<!-- Footer -->
+<div id="footer" style="
   position:fixed;
   bottom:0;
   left:0;
@@ -219,13 +229,13 @@
   justify-content:space-between;
   align-items:center;
 ">
-  <!-- Sol taraf: Yazı -->
+  <!-- Left Text -->
   <div style="font-size:14px; color:#222; padding-left:70px;">
     &copy; 2025 Oguz Emir — Technical Animator
   </div>
 
-  <!-- Sağ taraf: İkonlar -->
-  <div style="display:flex; gap:7px; padding-right:235px;">
+  <!-- Right Text -->
+  <div class="footer-icons" style="display:flex; gap:7px; padding-right:235px;">
     <a href="https://www.linkedin.com/in/oguzxemir" target="_blank">
       <img src="img/linkedin.png" alt="LinkedIn" style="height:24px;">
     </a>
@@ -239,16 +249,21 @@
 </div>
 
 <style>
-#myFooter {
+#footer {
   transition: background 0.5s ease;
 }
-#myFooter:hover {
+#footer:hover {
   background:#ffffff !important;
 }
+
+/* Icon hover efekti */
+.footer-icons img {
+  transition: filter 0.3s ease;
+}
+.footer-icons img:hover {
+  filter: brightness(0); /* siyaha döner */
+}
 </style>
-
-
-
 
 </body>
 </html>
