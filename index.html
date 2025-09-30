@@ -55,6 +55,7 @@
       width: 100%;
       height: 100%;
       border: none;
+      pointer-events: none; /* YouTube UI’sini tıklanamaz yapar */
     }
     /* Şeffaf overlay */
     .overlay {
@@ -121,24 +122,24 @@
   <main>
     <section id="portfolio">
       <div class="gallery">
-        <!-- Aynı video 4 kutuda test -->
+        <!-- Test için aynı video 4 kutuda -->
         <div class="gallery-item" data-video="pd09VSTixJA">
-          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0"
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3"
                   allow="autoplay; fullscreen"></iframe>
           <div class="overlay"></div>
         </div>
         <div class="gallery-item" data-video="pd09VSTixJA">
-          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0"
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3"
                   allow="autoplay; fullscreen"></iframe>
           <div class="overlay"></div>
         </div>
         <div class="gallery-item" data-video="pd09VSTixJA">
-          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0"
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3"
                   allow="autoplay; fullscreen"></iframe>
           <div class="overlay"></div>
         </div>
         <div class="gallery-item" data-video="pd09VSTixJA">
-          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0"
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3"
                   allow="autoplay; fullscreen"></iframe>
           <div class="overlay"></div>
         </div>
@@ -169,7 +170,6 @@
       overlay.addEventListener('click', () => {
         const videoId = item.getAttribute('data-video');
         lightbox.classList.add('active');
-        // Playlist parametresini kaldırdık → hata çıkmaz
         lightboxVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&rel=0&modestbranding=1`;
       });
     });
