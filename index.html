@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OGUZ EMIR — Gameplay Animator</title>
+  <title>OGUZ EMIR</title>
   <link rel="icon" type="image/png" href="img/favicon.png">
 
   <style>
@@ -15,27 +15,6 @@
       padding: 0;
       line-height: 1.6;
     }
-    header {
-      text-align: center;
-      padding: 60px 20px 30px;
-    }
-    header h1 {
-      font-size: 28px;
-      letter-spacing: 2px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    nav {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #666;
-    }
-    nav a:hover { color: #000; }
     main {
       max-width: 1200px;
       margin: 0 auto;
@@ -80,12 +59,6 @@
       cursor: pointer;
       background: transparent;
       z-index: 2;
-    }
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 12px;
-      color: #aaa;
     }
     /* Lightbox */
     .lightbox {
@@ -136,7 +109,7 @@
     <!-- Büyük Vimeo video -->
     <section id="reel">
       <div class="vimeo-wrapper">
-        <iframe src="https://vimeo.com/945492910"
+        <iframe src="https://player.vimeo.com/video/945492910"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowfullscreen></iframe>
       </div>
@@ -165,13 +138,34 @@
                   allow="autoplay; fullscreen"></iframe>
           <div class="overlay"></div>
         </div>
+        <div class="gallery-item" data-video="pd09VSTixJA">
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0"
+                  allow="autoplay; fullscreen"></iframe>
+          <div class="overlay"></div>
+        </div>
+        <div class="gallery-item" data-video="pd09VSTixJA">
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0"
+                  allow="autoplay; fullscreen"></iframe>
+          <div class="overlay"></div>
+        </div>
+        <div class="gallery-item" data-video="pd09VSTixJA">
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0"
+                  allow="autoplay; fullscreen"></iframe>
+          <div class="overlay"></div>
+        </div>
+        <div class="gallery-item" data-video="pd09VSTixJA">
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0"
+                  allow="autoplay; fullscreen"></iframe>
+          <div class="overlay"></div>
+        </div>
+        <div class="gallery-item" data-video="pd09VSTixJA">
+          <iframe src="https://www.youtube.com/embed/pd09VSTixJA?autoplay=1&mute=1&loop=1&playlist=pd09VSTixJA&controls=0&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0"
+                  allow="autoplay; fullscreen"></iframe>
+          <div class="overlay"></div>
+        </div>
       </div>
     </section>
   </main>
-
-  <footer>
-    &copy; 2025 Oguz Emir — Gameplay Animator
-  </footer>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
@@ -208,5 +202,53 @@
       }
     });
   </script>
+
+
+
+<!-- Sabit Footer -->
+<div id="myFooter" style="
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:60px;
+  background:rgba(255,255,255,0.3);
+  border-top:1px solid #ddd;
+  z-index:9999;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+">
+  <!-- Sol taraf: Yazı -->
+  <div style="font-size:14px; color:#222; padding-left:70px;">
+    &copy; 2025 Oguz Emir — Technical Animator
+  </div>
+
+  <!-- Sağ taraf: İkonlar -->
+  <div style="display:flex; gap:7px; padding-right:235px;">
+    <a href="https://www.linkedin.com/in/oguzxemir" target="_blank">
+      <img src="img/linkedin.png" alt="LinkedIn" style="height:24px;">
+    </a>
+    <a href="https://www.youtube.com/Hexae" target="_blank">
+      <img src="img/youtube.png" alt="YouTube" style="height:24px;">
+    </a>
+    <a href="https://www.instagram.com/ooguzemir" target="_blank">
+      <img src="img/instagram.png" alt="Instagram" style="height:24px;">
+    </a>
+  </div>
+</div>
+
+<style>
+#myFooter {
+  transition: background 0.5s ease;
+}
+#myFooter:hover {
+  background:#ffffff !important;
+}
+</style>
+
+
+
+
 </body>
 </html>
