@@ -6,11 +6,14 @@ body {
   padding: 0;
   line-height: 1.6;
 }
+
 main {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px 100px;
 }
+
+/* Vimeo ana video */
 .vimeo-wrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
@@ -24,6 +27,8 @@ main {
   height: 100%;
   border: none;
 }
+
+/* Header menü */
 .header-menu {
   display: flex;
   justify-content: space-between;
@@ -45,9 +50,11 @@ main {
 .menu-text:hover {
   color: #000000;
 }
+
+/* Galeri grid */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 .gallery-item {
@@ -55,13 +62,26 @@ main {
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
 }
-.gallery-item iframe {
+
+/* WebM video thumbnail */
+.gallery-item video.thumb {
   width: 100%;
-  height: 100%;
-  border: none;
-  pointer-events: none;
+  height: 110%;
+  object-fit: cover;         /* videoyu kutuya taşacak şekilde doldur */
+  object-position: center;   /* tam ortala, üstten/alttan biraz kırpılabilir */
+  transition: transform 0.3s ease;
+  display: block;
 }
+.gallery-item video.thumb:hover {
+  transform: scale(1.05);
+}
+
+/* Overlay */
 .overlay {
   position: absolute;
   top: 0; left: 0;
@@ -70,6 +90,8 @@ main {
   background: transparent;
   z-index: 2;
 }
+
+/* Lightbox */
 .lightbox {
   display: none;
   position: fixed;
@@ -98,12 +120,16 @@ main {
   font-weight: bold;
   cursor: pointer;
 }
+
+/* Responsive */
 @media (max-width: 992px) {
   .gallery { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
   .gallery { grid-template-columns: 1fr; }
 }
+
+/* Footer */
 #footer {
   position: fixed;
   bottom: 0;
@@ -137,23 +163,4 @@ main {
 }
 .footer-icons img:hover {
   filter: brightness(0);
-}
-.gallery-item {
-  aspect-ratio: 1 / 1;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #000;
-}
-.gallery-item img.thumb {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-.gallery-item img.thumb:hover {
-  transform: scale(1.05);
 }
