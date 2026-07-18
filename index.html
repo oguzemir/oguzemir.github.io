@@ -1,140 +1,215 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OGUZ EMIR</title>
-  <link rel="icon" type="image/webp" href="img/favicon.webp">
-  <link rel="stylesheet" href="style.css">
+  <title>Oğuz Emir — Game Animator & Animation TA</title>
+  <meta name="description" content="Oğuz Emir — Game Animator & Animation TA. 2D/3D animation, rigging systems and game animation pipelines. Maya, Blender, Spine2D, Unity, Unreal Engine.">
+  <meta property="og:title" content="Oğuz Emir — Game Animator & Animation TA">
+  <meta property="og:description" content="2D/3D animation, rigging systems and game animation pipelines.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305060a'/%3E%3Ccircle cx='20' cy='44' r='6' fill='%23c6f432'/%3E%3Ccircle cx='44' cy='20' r='6' fill='%23c6f432'/%3E%3Cpath d='M24 40 L40 24' stroke='%23c6f432' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <main>
-    <!-- Üst Yazılar -->
-    <div class="header-menu">
-      <span class="menu-text">OGUZ EMIR PORTFOLIO</span>
-      <a href="aboutme.html" class="menu-text">ABOUT ME</a>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav-logo" aria-label="Oğuz Emir — home">
+      <svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="transparent" stroke="var(--accent)" stroke-width="4"/>
+        <circle cx="20" cy="44" r="6" fill="var(--accent)"/>
+        <circle cx="44" cy="20" r="6" fill="var(--accent)"/>
+        <path d="M24 40 L40 24" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <span>OĞUZ<b>EMİR</b></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#experience" data-i18n="nav.experience">Experience</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#rigs" data-i18n="nav.rigs">Free Rigs</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a href="assets/cv/Oguz_Emir_CV.pdf" class="nav-cv" download data-i18n="nav.cv">CV ↓</a>
+    </nav>
+
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="tr">TR</button>
+      </div>
+      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
     </div>
-    
-    <!-- Header Video -->
-    <section id="reel">
-      <div class="vimeo-wrapper">
-        <iframe src="https://player.vimeo.com/video/945492910"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowfullscreen></iframe>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <canvas id="rigCanvas" aria-hidden="true"></canvas>
+      <div class="hero-inner">
+        <p class="hero-eyebrow mono"><span class="blink">●</span> <span data-i18n="hero.eyebrow">GAME ANIMATOR & ANIMATION TA</span></p>
+        <h1 class="hero-title">
+          <span class="line">OĞUZ</span>
+          <span class="line stroke">EMİR</span>
+        </h1>
+        <p class="hero-type mono">&gt; <span id="typewriter"></span><span class="caret">_</span></p>
+        <p class="hero-desc" data-i18n="hero.desc">
+          24 y/o animator focused on 2D/3D animation, rigging systems and game animation pipelines —
+          bringing characters to life in Unity &amp; Unreal Engine.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">View Projects</a>
+          <a href="assets/cv/Oguz_Emir_CV.pdf" class="btn btn-ghost" download data-i18n="hero.cta2">Download CV</a>
+        </div>
+        <div class="hero-socials" id="heroSocials"></div>
+      </div>
+      <div class="hero-scroll mono" aria-hidden="true">
+        <span data-i18n="hero.scroll">SCROLL</span>
+        <div class="hero-scroll-line"></div>
       </div>
     </section>
 
-    <!-- Works Grid -->
-<section id="portfolio">
-  <div class="gallery">
-
-    <!------------------------------------ WEBM AREA ------------------------------------>
-
-
-    <!-- Demon Idle -->
-    <div class="gallery-item" data-video="dQw4w9WgXcQ">
-      <video class="thumb" autoplay muted loop playsinline>
-        <source src="webm/Demon/Demon_Idle.webm" type="video/webm">
-      </video>
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marqueeTrack">
+        <span>MAYA</span><i>✦</i><span>BLENDER</span><i>✦</i><span>SPINE2D</span><i>✦</i>
+        <span>UNITY</span><i>✦</i><span>UNREAL ENGINE 5</span><i>✦</i><span>CASCADEUR</span><i>✦</i>
+        <span>PYTHON</span><i>✦</i><span>MEL</span><i>✦</i><span>RIGGING</span><i>✦</i><span>ANIMATION</span><i>✦</i>
+      </div>
     </div>
 
-    <!-- Demon Attack -->
-    <div class="gallery-item" data-video="dQw4w9WgXcQ">
-      <video class="thumb" autoplay muted loop playsinline>
-        <source src="webm/Demon/Demon_Attack.webm" type="video/webm">
-      </video>
-    </div>
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="section-head reveal">
+        <span class="section-num mono">01</span>
+        <h2 data-i18n="about.title">About Me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-photo reveal">
+          <div class="photo-frame">
+            <img src="assets/img/profile.jpg" alt="Oğuz Emir" onerror="this.remove()">
+            <div class="photo-fallback">
+              <svg viewBox="0 0 64 64" width="70" height="70" aria-hidden="true">
+                <circle cx="20" cy="44" r="6" fill="var(--accent)"/>
+                <circle cx="44" cy="20" r="6" fill="var(--accent)"/>
+                <path d="M24 40 L40 24" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+              <span class="mono" data-i18n="about.photoHint">profile.jpg → assets/img/</span>
+            </div>
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <p class="about-lead" data-i18n-html="about.lead">
+            Hi, I'm <em>Oğuz</em> — a Game Animator &amp; Animation Technical Animator.
+          </p>
+          <p data-i18n="about.p1">
+            I work across the full character pipeline: 2D/3D animation, rigging systems and
+            engine integration. From Spine2D characters running in Unity to complex humanoid,
+            creature, weapon and vehicle rigs in Maya — my focus is making characters feel alive
+            and pipelines feel invisible.
+          </p>
+          <p data-i18n="about.p2">
+            On the technical side I write Python &amp; MEL tools for Maya and build game-ready,
+            optimized workflows connecting Maya, Blender, Cascadeur, Spine2D, Unity and Unreal Engine.
+          </p>
+          <div class="about-stats">
+            <div class="stat"><b class="stat-num" data-count="8">0</b><span class="mono" data-i18n="about.stat1">YEARS OF ANIMATION</span></div>
+            <div class="stat"><b class="stat-num" data-count="10">0</b><span class="mono" data-i18n="about.stat2">GAME PROJECTS</span></div>
+            <div class="stat"><b class="stat-num" data-count="6">0</b><span class="mono" data-i18n="about.stat3">STUDIOS</span></div>
+            <div class="stat"><b class="stat-num">∞</b><span class="mono" data-i18n="about.stat4">KEYFRAMES</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Demon Walk -->
-    <div class="gallery-item" data-video="pd09VSTixJA">
-      <video class="thumb" autoplay muted loop playsinline>
-        <source src="webm/Demon/Demon_Walk.webm" type="video/webm">
-      </video>
-    </div>
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <div class="section-head reveal">
+        <span class="section-num mono">02</span>
+        <h2 data-i18n="skills.title">Core Skills</h2>
+      </div>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </section>
 
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="section-head reveal">
+        <span class="section-num mono">03</span>
+        <h2 data-i18n="exp.title">Experience</h2>
+      </div>
+      <div class="timeline" id="timeline"></div>
+      <div class="timeline-more-wrap reveal">
+        <button class="btn btn-ghost" id="timelineMore" data-i18n="exp.more">Show earlier roles ↓</button>
+      </div>
+    </section>
 
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+      <div class="section-head reveal">
+        <span class="section-num mono">04</span>
+        <h2 data-i18n="proj.title">Shipped &amp; In Production</h2>
+      </div>
+      <p class="section-sub reveal" data-i18n="proj.sub">Games I animated, rigged or built pipelines for.</p>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </section>
 
-    <!-- Dryad Run -->
-    <div class="gallery-item" data-video="dQw4w9WgXcQ">
-      <video class="thumb" autoplay muted loop playsinline>
-        <source src="webm/Dryad/Dryad_Run.webm" type="video/webm">
-      </video>
-    </div>
+    <!-- ============ FREE RIGS / GUMROAD ============ -->
+    <section class="section" id="rigs">
+      <div class="rigs-box reveal">
+        <div class="rigs-glow" aria-hidden="true"></div>
+        <span class="mono rigs-tag" data-i18n="rigs.tag">// FREE RIGS</span>
+        <h2 data-i18n="rigs.title">I share my rigs. For free.</h2>
+        <p data-i18n="rigs.desc">
+          Production-quality character rigs, ready to animate — download them on Gumroad,
+          use them in your reels, break them, learn from them.
+        </p>
+        <a class="btn btn-primary btn-big" href="https://physicss.gumroad.com/" target="_blank" rel="noopener">
+          <span data-i18n="rigs.cta">Get free rigs on Gumroad</span> ↗
+        </a>
+      </div>
+    </section>
 
-    <!-- Dryad Attack -->
-    <div class="gallery-item" data-video="pd09VSTixJA">
-      <video class="thumb" autoplay muted loop playsinline>
-        <source src="webm/Dryad/Dryad_Attack.webm" type="video/webm">
-      </video>
-    </div>
-
-    <!-- Dryad Idle -->
-    <div class="gallery-item" data-video="dQw4w9WgXcQ">
-      <video class="thumb" autoplay muted loop playsinline>
-        <source src="webm/Dryad/Dryad_Idle.webm" type="video/webm">
-      </video>
-    </div>
-
-
-    
-
-    <!-- Demonologist Idle -->
-    <div class="gallery-item" data-video="dQw4w9WgXcQ">
-      <video class="thumb" autoplay muted loop playsinline>
-        <source src="webm/Demonologist/Demonologist_Idle.webm" type="video/webm">
-      </video>
-    </div>
-
-    <!-- Demonologist Death -->
-    <div class="gallery-item" data-video="pd09VSTixJA">
-      <video class="thumb" autoplay muted loop playsinline>
-        <source src="webm/Demonologist/Demonologist_Death.webm" type="video/webm">
-      </video>
-    </div>
-
-    <!-- Demonologist Skill -->
-    <div class="gallery-item" data-video="dQw4w9WgXcQ">
-      <video class="thumb" autoplay muted loop playsinline>
-        <source src="webm/Demonologist/Demonologist_Skill.webm" type="video/webm">
-      </video>
-    </div>
-
-
-
-  </div>
-</section>
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="section-head reveal">
+        <span class="section-num mono">05</span>
+        <h2 data-i18n="contact.title">Contact</h2>
+      </div>
+      <div class="contact-inner reveal">
+        <h3 class="contact-big" data-i18n-html="contact.big">Let's make something <em>move</em>.</h3>
+        <p data-i18n="contact.desc">Got a character that needs a soul, a rig that fights back, or a pipeline that hurts? Say hi.</p>
+        <a class="contact-mail mono" href="mailto:oguzyeager@gmail.com">oguzyeager@gmail.com</a>
+        <div class="contact-socials" id="contactSocials"></div>
+      </div>
+    </section>
 
   </main>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <span class="lightbox-close">&times;</span>
-    <div class="lightbox-content">
-      <iframe id="lightbox-video" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
-    </div>
-  </div>
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <span class="mono">© <span id="year">2026</span> Oğuz Emir</span>
+    <span class="mono footer-note" data-i18n="footer.note">rigged & animated by hand — no mocap</span>
+  </footer>
 
-  <!-- Footer -->
-  <div id="footer">
-    <!-- Left Text -->
-    <div class="footer-left">
-      &copy; 2025 Oguz Emir — Technical Animator
-    </div>
-
-    <!-- Right Text -->
-    <div class="footer-icons">
-      <a href="https://www.linkedin.com/in/oguzxemir" target="_blank">
-        <img src="img/linkedin.webp" alt="LinkedIn">
-      </a>
-      <a href="https://www.youtube.com/Hexae" target="_blank">
-        <img src="img/youtube.webp" alt="YouTube">
-      </a>
-      <a href="https://www.instagram.com/ooguzemir" target="_blank">
-        <img src="img/instagram.webp" alt="Instagram">
-      </a>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
