@@ -2,10 +2,11 @@
 
 CV'ni bu klasöre **tam olarak şu adla** koy:
 
-    assets/cv/Oguz_Emir_CV.pdf
+    assets/cv/oguz-emir-cv.pdf
 
-Navbar'daki "CV ↓" butonu ve hero'daki "CV İndir / Download CV" butonu
-bu dosyaya bağlı. Dosyayı koyduğun anda indirme çalışır.
+Navbar'daki "CV" butonu ve hero'daki "CV'yi Görüntüle / View CV" butonu
+bu dosyayı sayfa içinde popup'ta açar (popup'ta "Yeni sekmede aç" seçeneği
+de var). Buraya hangi PDF'i koyarsan popup onu gösterir — kod değiştirmek
+gerekmez, dosyanın üzerine yazman yeterli.
 
-Farklı bir dosya adı kullanmak istersen `index.html` içinde
-`assets/cv/Oguz_Emir_CV.pdf` geçen 2 yeri güncelle.
+Şu an güncel CV (19 Temmuz 2026) yüklü. ✅

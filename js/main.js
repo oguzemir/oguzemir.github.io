@@ -98,6 +98,7 @@
   /* ============ TIMELINE ============ */
   var VISIBLE_ROLES = 5;
   var timelineExpanded = false;
+  var showFreelance = false;
 
   function badgeLabel(badge) {
     if (badge === "now") return t("exp.present");
@@ -109,7 +110,10 @@
   function renderTimeline() {
     var wrap = document.getElementById("timeline");
     if (!wrap) return;
-    wrap.innerHTML = window.EXPERIENCE.map(function (job, i) {
+    var jobs = window.EXPERIENCE.filter(function (job) {
+      return showFreelance || job.badge !== "freelance";
+    });
+    wrap.innerHTML = jobs.map(function (job, i) {
       var hidden = !timelineExpanded && i >= VISIBLE_ROLES ? " hidden-role" : "";
       var badge = job.badge
         ? '<span class="tl-badge' + (job.badge === "now" ? " now" : "") + '">' + badgeLabel(job.badge) + "</span>"
@@ -131,6 +135,14 @@
     observeReveals(wrap);
   }
 
+  var freelanceToggle = document.getElementById("freelanceToggle");
+  if (freelanceToggle) {
+    freelanceToggle.addEventListener("change", function () {
+      showFreelance = freelanceToggle.checked;
+      renderTimeline();
+    });
+  }
+
   var moreBtn = document.getElementById("timelineMore");
   if (moreBtn) {
     moreBtn.addEventListener("click", function () {
@@ -147,9 +159,11 @@
     var grid = document.getElementById("projectsGrid");
     if (!grid) return;
     grid.innerHTML = window.PROJECTS.map(function (p) {
-      var link = p.url
-        ? '<a class="proj-link" href="' + p.url + '" target="_blank" rel="noopener">' + t("proj.visit") + "</a>"
-        : "";
+      var linkDefs = p.links || (p.url ? [{ label: null, url: p.url }] : []);
+      var link = linkDefs.map(function (l) {
+        return '<a class="proj-link" href="' + l.url + '" target="_blank" rel="noopener">' +
+          (l.label || t("proj.visit")) + " ↗</a>";
+      }).join("");
       var imgFile = "assets/img/projects/" + (p.img || p.slug + ".jpg");
       return (
         '<article class="proj-card reveal">' +
@@ -159,7 +173,7 @@
           "</div>" +
           '<div class="proj-body">' +
             '<span class="proj-type mono">' + p.type[lang] + "</span>" +
-            '<div class="proj-top"><h3 class="proj-title">' + p.title + "</h3>" + link + "</div>" +
+            '<div class="proj-top"><h3 class="proj-title">' + p.title + '</h3><div class="proj-links">' + link + "</div></div>" +
             '<p class="proj-desc">' + p.desc[lang] + "</p>" +
             '<div class="proj-tags">' +
               p.tags.map(function (tag) { return '<span class="tag">' + tag + "</span>"; }).join("") +
@@ -297,6 +311,37 @@
   } else {
     if (dot) dot.remove();
     if (ring) ring.remove();
+  }
+
+  /* ============ CV MODAL ============ */
+  var cvModal = document.getElementById("cvModal");
+  var cvFrame = document.getElementById("cvFrame");
+  var CV_PDF = "assets/cv/oguz-emir-cv.pdf";
+
+  function openCv() {
+    if (!cvFrame.getAttribute("src")) {
+      cvFrame.setAttribute("src", CV_PDF + "#view=FitH");
+    }
+    cvModal.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+  function closeCv() {
+    cvModal.hidden = true;
+    document.body.style.overflow = "";
+  }
+  document.querySelectorAll(".cv-open").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      openCv();
+    });
+  });
+  if (cvModal) {
+    cvModal.querySelectorAll("[data-cv-close]").forEach(function (el) {
+      el.addEventListener("click", closeCv);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !cvModal.hidden) closeCv();
+    });
   }
 
   /* ============ MARQUEE — duplicate content until it can loop seamlessly ============ */

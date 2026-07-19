@@ -13,12 +13,13 @@ window.I18N = {
     "nav.projects": "Projects",
     "nav.rigs": "Free Rigs",
     "nav.contact": "Contact",
-    "nav.cv": "CV ↓",
+    "nav.cv": "CV",
 
     "hero.eyebrow": "GAME ANIMATOR & ANIMATION TA",
     "hero.desc": "24 y/o animator focused on 2D/3D animation, rigging systems and game animation pipelines — bringing characters to life in Unity & Unreal Engine.",
     "hero.cta1": "View Projects",
-    "hero.cta2": "Download CV",
+    "hero.cta2": "View CV",
+    "cv.newtab": "Open in new tab ↗",
     "hero.scroll": "SCROLL",
     "hero.roles": [
       "I animate game characters.",
@@ -41,13 +42,14 @@ window.I18N = {
     "skills.title": "Core Skills",
 
     "exp.title": "Experience",
+    "exp.freelance": "SHOW FREELANCE",
     "exp.more": "Show earlier roles ↓",
     "exp.less": "Show less ↑",
     "exp.present": "PRESENT",
 
     "proj.title": "Shipped & In Production",
     "proj.sub": "Games I animated, rigged or built pipelines for.",
-    "proj.visit": "Visit ↗",
+    "proj.visit": "Visit",
 
     "rigs.tag": "// FREE RIGS",
     "rigs.title": "I share my rigs. For free.",
@@ -71,12 +73,13 @@ window.I18N = {
     "nav.projects": "Projeler",
     "nav.rigs": "Ücretsiz Rigler",
     "nav.contact": "İletişim",
-    "nav.cv": "CV ↓",
+    "nav.cv": "CV",
 
     "hero.eyebrow": "OYUN ANİMATÖRÜ & ANIMATION TA",
     "hero.desc": "24 yaşında bir animatörüm; 2D/3D animasyon, rigging sistemleri ve oyun animasyon pipeline'larına odaklanıyorum — karakterlere Unity ve Unreal Engine'de hayat veriyorum.",
     "hero.cta1": "Projelere Bak",
-    "hero.cta2": "CV İndir",
+    "hero.cta2": "CV'yi Görüntüle",
+    "cv.newtab": "Yeni sekmede aç ↗",
     "hero.scroll": "KAYDIR",
     "hero.roles": [
       "Oyun karakterleri anime ediyorum.",
@@ -99,13 +102,14 @@ window.I18N = {
     "skills.title": "Yetenekler",
 
     "exp.title": "Deneyim",
+    "exp.freelance": "FREELANCE GÖSTER",
     "exp.more": "Önceki rolleri göster ↓",
     "exp.less": "Daha az göster ↑",
     "exp.present": "DEVAM",
 
     "proj.title": "Yayınlanan & Üretimde",
     "proj.sub": "Animasyonunu, rig'ini veya pipeline'ını yaptığım oyunlar.",
-    "proj.visit": "Ziyaret ↗",
+    "proj.visit": "Ziyaret",
 
     "rigs.tag": "// ÜCRETSİZ RİGLER",
     "rigs.title": "Riglerimi paylaşıyorum. Ücretsiz.",
@@ -349,13 +353,41 @@ window.PROJECTS = [
     slug: "volt",
     initials: "VOLT",
     title: "V.O.L.T",
-    url: null,
+    url: "https://store.steampowered.com/app/3413390/VOLT/",
     type: { en: "FPS HERO SHOOTER · STEAM", tr: "FPS HERO SHOOTER · STEAM" },
     desc: {
       en: "Hero & weapon rigs, gameplay animations and optimized rig systems for an unannounced-turned-released MMOFPS.",
       tr: "MMOFPS için kahraman ve silah rigleri, gameplay animasyonları ve optimize rig sistemleri."
     },
     tags: ["Maya", "Rigging", "Unreal Engine 5"]
+  },
+  {
+    slug: "apex-legends",
+    initials: "APEX",
+    title: "Apex Legends",
+    url: "https://store.steampowered.com/app/1172470/Apex_Legends/",
+    type: { en: "BATTLE ROYALE · PC & CONSOLE", tr: "BATTLE ROYALE · PC & KONSOL" },
+    desc: {
+      en: "Freelance character rigging support for Respawn Entertainment's hero shooter battle royale.",
+      tr: "Respawn Entertainment'ın hero shooter battle royale'i için freelance karakter rigging desteği."
+    },
+    tags: ["Rigging", "Maya", "Respawn"]
+  },
+  {
+    slug: "rogue-legend",
+    img: "rogue-legend.webp",
+    initials: "RL",
+    title: "Rogue Legend",
+    links: [
+      { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.pockethaven.roguelegend&hl=tr" },
+      { label: "App Store", url: "https://apps.apple.com/tr/app/rogue-legend-roguelike-rpg/id6754965520?l=tr" }
+    ],
+    type: { en: "ROGUELIKE RPG · MOBILE", tr: "ROGUELIKE RPG · MOBİL" },
+    desc: {
+      en: "2D character animation, Spine rigging and full Spine → Unity runtime integration.",
+      tr: "2D karakter animasyonu, Spine rigging ve tam Spine → Unity runtime entegrasyonu."
+    },
+    tags: ["Spine2D", "Unity", "2D Animation"]
   },
   {
     slug: "reflection",
@@ -368,19 +400,6 @@ window.PROJECTS = [
       tr: "Karmaşık insansı ve yaratık rigleri, karakter animasyonları ve animasyon ekibi liderliği."
     },
     tags: ["Maya", "Creature Rigs", "Animation Lead"]
-  },
-  {
-    slug: "rogue-legend",
-    img: "rogue-legend.webp",
-    initials: "RL",
-    title: "Rogue Legend",
-    url: null,
-    type: { en: "ROGUELIKE RPG · MOBILE", tr: "ROGUELIKE RPG · MOBİL" },
-    desc: {
-      en: "2D character animation, Spine rigging and full Spine → Unity runtime integration.",
-      tr: "2D karakter animasyonu, Spine rigging ve tam Spine → Unity runtime entegrasyonu."
-    },
-    tags: ["Spine2D", "Unity", "2D Animation"]
   },
   {
     slug: "old-war",

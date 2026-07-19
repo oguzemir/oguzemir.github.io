@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20260719b">
 </head>
 <body>
 
@@ -42,7 +42,7 @@
       <a href="#projects" data-i18n="nav.projects">Projects</a>
       <a href="#rigs" data-i18n="nav.rigs">Free Rigs</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
-      <a href="assets/cv/Oguz_Emir_CV.pdf" class="nav-cv" download data-i18n="nav.cv">CV ↓</a>
+      <a href="assets/cv/oguz-emir-cv.pdf" class="nav-cv cv-open" data-i18n="nav.cv">CV</a>
     </nav>
 
     <div class="nav-right">
@@ -75,7 +75,7 @@
         </p>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">View Projects</a>
-          <a href="assets/cv/Oguz_Emir_CV.pdf" class="btn btn-ghost" download data-i18n="hero.cta2">Download CV</a>
+          <a href="assets/cv/oguz-emir-cv.pdf" class="btn btn-ghost cv-open" data-i18n="hero.cta2">View CV</a>
         </div>
         <div class="hero-socials" id="heroSocials"></div>
       </div>
@@ -154,6 +154,11 @@
       <div class="section-head reveal">
         <span class="section-num mono">03</span>
         <h2 data-i18n="exp.title">Experience</h2>
+        <label class="freelance-toggle">
+          <input type="checkbox" id="freelanceToggle">
+          <span class="ft-label mono" data-i18n="exp.freelance">SHOW FREELANCE</span>
+          <span class="ft-track" aria-hidden="true"><span class="ft-thumb"></span></span>
+        </label>
       </div>
       <div class="timeline" id="timeline"></div>
       <div class="timeline-more-wrap reveal">
@@ -209,7 +214,22 @@
     <span class="mono footer-note" data-i18n="footer.note">rigged & animated by hand — no mocap</span>
   </footer>
 
-  <script src="js/i18n.js"></script>
-  <script src="js/main.js"></script>
+  <!-- ============ CV MODAL ============ -->
+  <div class="cv-modal" id="cvModal" hidden>
+    <div class="cv-backdrop" data-cv-close></div>
+    <div class="cv-dialog" role="dialog" aria-modal="true" aria-label="CV">
+      <div class="cv-bar">
+        <span class="mono cv-filename">oguz-emir-cv.pdf</span>
+        <div class="cv-bar-actions">
+          <a class="cv-newtab mono" href="assets/cv/oguz-emir-cv.pdf" target="_blank" rel="noopener" data-i18n="cv.newtab">Open in new tab ↗</a>
+          <button class="cv-close" aria-label="Close" data-cv-close>✕</button>
+        </div>
+      </div>
+      <iframe id="cvFrame" title="CV"></iframe>
+    </div>
+  </div>
+
+  <script src="js/i18n.js?v=20260719b"></script>
+  <script src="js/main.js?v=20260719b"></script>
 </body>
 </html>

@@ -428,8 +428,60 @@ body.cursor-hover .cursor-ring {
   display: flex;
   align-items: baseline;
   gap: 22px;
+  flex-wrap: wrap;
   margin-bottom: clamp(36px, 6vw, 64px);
 }
+
+/* freelance switch (Experience section) */
+.freelance-toggle {
+  margin-left: auto;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.freelance-toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.ft-label {
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  transition: color 0.25s;
+}
+.ft-track {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.04);
+  transition: background 0.25s, border-color 0.25s;
+}
+.ft-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3.5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.3, 1.2), background 0.25s;
+}
+.freelance-toggle input:checked ~ .ft-track {
+  background: var(--accent-dim);
+  border-color: rgba(198, 244, 50, 0.5);
+}
+.freelance-toggle input:checked ~ .ft-track .ft-thumb {
+  transform: translateX(17.5px);
+  background: var(--accent);
+}
+.freelance-toggle:hover .ft-label { color: var(--text); }
+.freelance-toggle input:checked ~ .ft-label { color: var(--accent); }
 .section-num {
   color: var(--accent);
   font-size: 15px;
@@ -728,7 +780,8 @@ body.cursor-hover .cursor-ring {
   letter-spacing: 0.05em;
 }
 .proj-body { padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-.proj-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.proj-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.proj-links { display: flex; gap: 7px; flex-wrap: wrap; }
 .proj-title { font-size: 20px; font-weight: 700; }
 .proj-link {
   font-family: var(--mono);
@@ -804,6 +857,78 @@ body.cursor-hover .cursor-ring {
   color: var(--accent);
 }
 .contact-socials { justify-content: center; }
+
+/* ============ CV MODAL ============ */
+.cv-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(10px, 3vw, 40px);
+}
+.cv-modal[hidden] { display: none; }
+.cv-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 4, 7, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.cv-dialog {
+  position: relative;
+  width: min(900px, 100%);
+  height: min(92vh, 1100px);
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-2);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 40px 120px -30px rgba(0, 0, 0, 0.9);
+  animation: cvIn 0.25s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+@keyframes cvIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.98); }
+}
+.cv-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.02);
+}
+.cv-filename { font-size: 12px; color: var(--muted); }
+.cv-bar-actions { display: flex; align-items: center; gap: 12px; }
+.cv-newtab {
+  font-size: 12px;
+  color: var(--accent);
+  border: 1px solid rgba(198, 244, 50, 0.35);
+  padding: 6px 12px;
+  border-radius: 999px;
+  transition: background 0.25s, color 0.25s;
+}
+.cv-newtab:hover { background: var(--accent); color: #0a0c04; }
+.cv-close {
+  width: 34px; height: 34px;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  background: none;
+  color: var(--text);
+  font-size: 15px;
+  cursor: pointer;
+  transition: border-color 0.25s, color 0.25s;
+}
+.cv-close:hover { border-color: var(--accent); color: var(--accent); }
+#cvFrame {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: #3c3f44;
+}
 
 /* ============ FOOTER ============ */
 .footer {
