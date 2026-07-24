@@ -15,7 +15,7 @@ window.I18N = {
     "nav.contact": "Contact",
     "nav.cv": "CV",
 
-    "hero.eyebrow": "GAME ANIMATOR & ANIMATION TA",
+    "hero.eyebrow": "TECHNICAL ANIMATOR & SR. RIGGING ARTIST",
     "hero.desc": "24 y/o animator focused on 2D/3D animation, rigging systems and game animation pipelines — bringing characters to life in Unity & Unreal Engine.",
     "hero.cta1": "View Projects",
     "hero.cta2": "View CV",
@@ -31,7 +31,7 @@ window.I18N = {
 
     "about.title": "About Me",
     "about.photoHint": "profile.jpg → assets/img/",
-    "about.lead": "Hi, I'm <em>Oğuz</em> — a Game Animator & Animation Technical Animator.",
+    "about.lead": "Hi, I'm <em>Oğuz</em> —<br>a Technical Animator & Sr. Rigging Artist.",
     "about.p1": "I work across the full character pipeline: 2D/3D animation, rigging systems and engine integration. From Spine2D characters running in Unity to complex humanoid, creature, weapon and vehicle rigs in Maya — my focus is making characters feel alive and pipelines feel invisible.",
     "about.p2": "On the technical side I write Python & MEL tools for Maya and build game-ready, optimized workflows connecting Maya, Blender, Cascadeur, Spine2D, Unity and Unreal Engine.",
     "about.stat1": "YEARS OF ANIMATION",
@@ -75,7 +75,7 @@ window.I18N = {
     "nav.contact": "İletişim",
     "nav.cv": "CV",
 
-    "hero.eyebrow": "OYUN ANİMATÖRÜ & ANIMATION TA",
+    "hero.eyebrow": "TEKNİK ANİMATÖR & KIDEMLİ RIGGING ARTİSTİ",
     "hero.desc": "24 yaşında bir animatörüm; 2D/3D animasyon, rigging sistemleri ve oyun animasyon pipeline'larına odaklanıyorum — karakterlere Unity ve Unreal Engine'de hayat veriyorum.",
     "hero.cta1": "Projelere Bak",
     "hero.cta2": "CV'yi Görüntüle",
@@ -91,7 +91,7 @@ window.I18N = {
 
     "about.title": "Hakkımda",
     "about.photoHint": "profile.jpg → assets/img/",
-    "about.lead": "Merhaba, ben <em>Oğuz</em> — Oyun Animatörü & Animation Technical Animator.",
+    "about.lead": "Merhaba, ben <em>Oğuz</em> —<br>Teknik Animatör & Kıdemli Rigging Artisti.",
     "about.p1": "Karakter pipeline'ının tamamında çalışıyorum: 2D/3D animasyon, rigging sistemleri ve engine entegrasyonu. Unity'de koşan Spine2D karakterlerden Maya'daki karmaşık insansı, yaratık, silah ve araç riglerine kadar — odağım karakterleri canlı, pipeline'ları görünmez hissettirmek.",
     "about.p2": "Teknik tarafta Maya için Python & MEL araçları yazıyor; Maya, Blender, Cascadeur, Spine2D, Unity ve Unreal Engine'i birbirine bağlayan oyuna hazır, optimize iş akışları kuruyorum.",
     "about.stat1": "YIL ANİMASYON",
@@ -405,7 +405,7 @@ window.PROJECTS = [
     slug: "old-war",
     initials: "OW",
     title: "Old War: Legacy of Ate",
-    url: "https://www.eskisavas.com/",
+    url: "https://store.steampowered.com/app/4839400/Old_War_Demo/",
     type: { en: "ACTION · PC", tr: "AKSİYON · PC" },
     desc: {
       en: "3D character animations and cinematic camera sequences built in Unreal Engine Sequencer.",
