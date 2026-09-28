@@ -1,235 +1,519 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oğuz Emir — Game Animator & Animation TA</title>
-  <meta name="description" content="Oğuz Emir — Game Animator & Animation TA. 2D/3D animation, rigging systems and game animation pipelines. Maya, Blender, Spine2D, Unity, Unreal Engine.">
-  <meta property="og:title" content="Oğuz Emir — Game Animator & Animation TA">
-  <meta property="og:description" content="2D/3D animation, rigging systems and game animation pipelines.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Oğuz Emir · Technical Artist</title>
+  <meta name="description" content="Oğuz Emir is a Technical Artist in Istanbul. 2D and 2.5D Spine animation and rigging, Unity integration and C# tools, plus 3D rigging in Maya and Unreal, for games like Rogue Legend, Apex Legends and Rise Online World.">
+  <meta name="theme-color" content="#0d0d0f">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305060a'/%3E%3Ccircle cx='20' cy='44' r='6' fill='%23c6f432'/%3E%3Ccircle cx='44' cy='20' r='6' fill='%23c6f432'/%3E%3Cpath d='M24 40 L40 24' stroke='%23c6f432' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <meta property="og:title" content="Oğuz Emir · Technical Artist">
+  <meta property="og:description" content="Spine, Unity and 3D rigging for games. Istanbul.">
+  <meta property="og:image" content="img/web/profile.webp">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d0d0f'/%3E%3Cpath d='M16 5l11 11-11 11L5 16z' fill='%23ff6a2b'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260719b">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=4.4">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Oguz Emir","jobTitle":"Technical Artist","email":"mailto:oguzemir.2210@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Istanbul","addressCountry":"TR"},"url":"https://oguzemir.github.io/","sameAs":["https://www.linkedin.com/in/oguzxemir/","https://www.artstation.com/oguzemir","https://www.instagram.com/physicsanim"]}
+  </script>
 </head>
 <body>
+  <a class="skip" href="#work">Skip to work</a>
 
-  <!-- Custom cursor -->
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
-
-  <!-- Scroll progress -->
-  <div class="scroll-progress" aria-hidden="true"></div>
-
-  <!-- ============ NAV ============ -->
-  <header class="nav" id="nav">
-    <a href="#top" class="nav-logo" aria-label="Oğuz Emir — home">
-      <svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true">
-        <rect width="64" height="64" rx="14" fill="transparent" stroke="var(--accent)" stroke-width="4"/>
-        <circle cx="20" cy="44" r="6" fill="var(--accent)"/>
-        <circle cx="44" cy="20" r="6" fill="var(--accent)"/>
-        <path d="M24 40 L40 24" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
-      </svg>
-      <span>OĞUZ<b>EMİR</b></span>
-    </a>
-
-    <nav class="nav-links" id="navLinks" aria-label="Main">
-      <a href="#about" data-i18n="nav.about">About</a>
-      <a href="#skills" data-i18n="nav.skills">Skills</a>
-      <a href="#experience" data-i18n="nav.experience">Experience</a>
-      <a href="#projects" data-i18n="nav.projects">Projects</a>
-      <a href="#rigs" data-i18n="nav.rigs">Free Rigs</a>
-      <a href="#contact" data-i18n="nav.contact">Contact</a>
-      <a href="assets/cv/oguz-emir-cv.pdf" class="nav-cv cv-open" data-i18n="nav.cv">CV</a>
-    </nav>
-
-    <div class="nav-right">
-      <div class="lang-switch" role="group" aria-label="Language">
-        <button class="lang-btn" data-lang="en">EN</button>
-        <span class="lang-sep">/</span>
-        <button class="lang-btn" data-lang="tr">TR</button>
-      </div>
-      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <main id="top">
-
-    <!-- ============ HERO ============ -->
-    <section class="hero">
-      <canvas id="rigCanvas" aria-hidden="true"></canvas>
-      <div class="hero-inner">
-        <p class="hero-eyebrow mono"><span class="blink">●</span> <span data-i18n="hero.eyebrow">TECHNICAL ANIMATOR & SR. RIGGING ARTIST</span></p>
-        <h1 class="hero-title">
-          <span class="line">OĞUZ</span>
-          <span class="line stroke">EMİR</span>
-        </h1>
-        <p class="hero-type mono">&gt; <span id="typewriter"></span><span class="caret">_</span></p>
-        <p class="hero-desc" data-i18n="hero.desc">
-          24 y/o animator focused on 2D/3D animation, rigging systems and game animation pipelines —
-          bringing characters to life in Unity &amp; Unreal Engine.
-        </p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">View Projects</a>
-          <a href="assets/cv/oguz-emir-cv.pdf" class="btn btn-ghost cv-open" data-i18n="hero.cta2">View CV</a>
-        </div>
-        <div class="hero-socials" id="heroSocials"></div>
-      </div>
-      <div class="hero-scroll mono" aria-hidden="true">
-        <span data-i18n="hero.scroll">SCROLL</span>
-        <div class="hero-scroll-line"></div>
-      </div>
-    </section>
-
-    <!-- ============ MARQUEE ============ -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track" id="marqueeTrack">
-        <span>MAYA</span><i>✦</i><span>BLENDER</span><i>✦</i><span>SPINE2D</span><i>✦</i>
-        <span>UNITY</span><i>✦</i><span>UNREAL ENGINE 5</span><i>✦</i><span>CASCADEUR</span><i>✦</i>
-        <span>PYTHON</span><i>✦</i><span>MEL</span><i>✦</i><span>RIGGING</span><i>✦</i><span>ANIMATION</span><i>✦</i>
-      </div>
-    </div>
-
-    <!-- ============ ABOUT ============ -->
-    <section class="section" id="about">
-      <div class="section-head reveal">
-        <span class="section-num mono">01</span>
-        <h2 data-i18n="about.title">About Me</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-photo reveal">
-          <div class="photo-frame">
-            <img src="assets/img/profile.jpg" alt="Oğuz Emir" onerror="this.remove()">
-            <div class="photo-fallback">
-              <svg viewBox="0 0 64 64" width="70" height="70" aria-hidden="true">
-                <circle cx="20" cy="44" r="6" fill="var(--accent)"/>
-                <circle cx="44" cy="20" r="6" fill="var(--accent)"/>
-                <path d="M24 40 L40 24" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
-              </svg>
-              <span class="mono" data-i18n="about.photoHint">profile.jpg → assets/img/</span>
-            </div>
-            <span class="corner tl"></span><span class="corner tr"></span>
-            <span class="corner bl"></span><span class="corner br"></span>
-          </div>
-        </div>
-        <div class="about-text reveal">
-          <p class="about-lead" data-i18n-html="about.lead">
-            Hi, I'm <em>Oğuz</em> —<br>a Technical Animator &amp; Sr. Rigging Artist.
-          </p>
-          <p data-i18n="about.p1">
-            I work across the full character pipeline: 2D/3D animation, rigging systems and
-            engine integration. From Spine2D characters running in Unity to complex humanoid,
-            creature, weapon and vehicle rigs in Maya — my focus is making characters feel alive
-            and pipelines feel invisible.
-          </p>
-          <p data-i18n="about.p2">
-            On the technical side I write Python &amp; MEL tools for Maya and build game-ready,
-            optimized workflows connecting Maya, Blender, Cascadeur, Spine2D, Unity and Unreal Engine.
-          </p>
-          <div class="about-stats">
-            <div class="stat"><b class="stat-num" data-count="8">0</b><span class="mono" data-i18n="about.stat1">YEARS OF ANIMATION</span></div>
-            <div class="stat"><b class="stat-num" data-count="10">0</b><span class="mono" data-i18n="about.stat2">GAME PROJECTS</span></div>
-            <div class="stat"><b class="stat-num" data-count="6">0</b><span class="mono" data-i18n="about.stat3">STUDIOS</span></div>
-            <div class="stat"><b class="stat-num">∞</b><span class="mono" data-i18n="about.stat4">KEYFRAMES</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SKILLS ============ -->
-    <section class="section" id="skills">
-      <div class="section-head reveal">
-        <span class="section-num mono">02</span>
-        <h2 data-i18n="skills.title">Core Skills</h2>
-      </div>
-      <div class="skills-grid" id="skillsGrid"></div>
-    </section>
-
-    <!-- ============ EXPERIENCE ============ -->
-    <section class="section" id="experience">
-      <div class="section-head reveal">
-        <span class="section-num mono">03</span>
-        <h2 data-i18n="exp.title">Experience</h2>
-        <label class="freelance-toggle">
-          <input type="checkbox" id="freelanceToggle">
-          <span class="ft-label mono" data-i18n="exp.freelance">SHOW FREELANCE</span>
-          <span class="ft-track" aria-hidden="true"><span class="ft-thumb"></span></span>
-        </label>
-      </div>
-      <div class="timeline" id="timeline"></div>
-      <div class="timeline-more-wrap reveal">
-        <button class="btn btn-ghost" id="timelineMore" data-i18n="exp.more">Show earlier roles ↓</button>
-      </div>
-    </section>
-
-    <!-- ============ PROJECTS ============ -->
-    <section class="section" id="projects">
-      <div class="section-head reveal">
-        <span class="section-num mono">04</span>
-        <h2 data-i18n="proj.title">Shipped &amp; In Production</h2>
-      </div>
-      <p class="section-sub reveal" data-i18n="proj.sub">Games I animated, rigged or built pipelines for.</p>
-      <div class="projects-grid" id="projectsGrid"></div>
-    </section>
-
-    <!-- ============ FREE RIGS / GUMROAD ============ -->
-    <section class="section" id="rigs">
-      <div class="rigs-box reveal">
-        <div class="rigs-glow" aria-hidden="true"></div>
-        <span class="mono rigs-tag" data-i18n="rigs.tag">// FREE RIGS</span>
-        <h2 data-i18n="rigs.title">I share my rigs. For free.</h2>
-        <p data-i18n="rigs.desc">
-          Production-quality character rigs, ready to animate — download them on Gumroad,
-          use them in your reels, break them, learn from them.
-        </p>
-        <a class="btn btn-primary btn-big" href="https://physicss.gumroad.com/" target="_blank" rel="noopener">
-          <span data-i18n="rigs.cta">Get free rigs on Gumroad</span> ↗
-        </a>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section class="section" id="contact">
-      <div class="section-head reveal">
-        <span class="section-num mono">05</span>
-        <h2 data-i18n="contact.title">Contact</h2>
-      </div>
-      <div class="contact-inner reveal">
-        <h3 class="contact-big" data-i18n-html="contact.big">Let's make something <em>move</em>.</h3>
-        <p data-i18n="contact.desc">Got a character that needs a soul, a rig that fights back, or a pipeline that hurts? Say hi.</p>
-        <a class="contact-mail mono" href="mailto:oguzyeager@gmail.com">oguzyeager@gmail.com</a>
-        <div class="contact-socials" id="contactSocials"></div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <span class="mono">© <span id="year">2026</span> Oğuz Emir</span>
-    <span class="mono footer-note" data-i18n="footer.note">rigged & animated by hand — no mocap</span>
-  </footer>
-
-  <!-- ============ CV MODAL ============ -->
-  <div class="cv-modal" id="cvModal" hidden>
-    <div class="cv-backdrop" data-cv-close></div>
-    <div class="cv-dialog" role="dialog" aria-modal="true" aria-label="CV">
-      <div class="cv-bar">
-        <span class="mono cv-filename">oguz-emir-cv.pdf</span>
-        <div class="cv-bar-actions">
-          <a class="cv-newtab mono" href="assets/cv/oguz-emir-cv.pdf" target="_blank" rel="noopener" data-i18n="cv.newtab">Open in new tab ↗</a>
-          <button class="cv-close" aria-label="Close" data-cv-close>✕</button>
-        </div>
-      </div>
-      <iframe id="cvFrame" title="CV"></iframe>
+  <!-- ░░ LOADER ░░ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <span class="loader__label">baking keys</span>
+      <span class="loader__frame" id="loaderFrame">0000</span>
+      <span class="loader__bar"><i id="loaderBar"></i></span>
     </div>
   </div>
 
-  <script src="js/i18n.js?v=20260724a"></script>
-  <script src="js/main.js?v=20260719b"></script>
+  <!-- ░░ TOP BAR ░░ -->
+  <header class="top" id="top">
+    <a class="brand" href="#hero" aria-label="Oguz Emir, back to top">
+      <span class="brand__key" aria-hidden="true"></span>
+      <span class="brand__name">Oğuz Emir</span><span class="brand__ext">Portfolyo</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#dopesheet">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#playground">Playground</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn--ghost btn--sm top__cv" href="cv/Oguz_EMIR_Resume.pdf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 13h10" /></svg>
+      CV
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+  </header>
+
+  <main>
+    <!-- ░░ SH000 HERO ░░ -->
+    <section class="hero" id="hero" data-key="Hero" data-shot="SH000">
+      <canvas class="hero__rig" id="rig" aria-hidden="true"></canvas>
+
+      <div class="viewport-hud" aria-hidden="true">
+        <span class="hud-corner hud-corner--tl"></span><span class="hud-corner hud-corner--tr"></span>
+        <span class="hud-corner hud-corner--bl"></span><span class="hud-corner hud-corner--br"></span>
+        <div class="hud hud--tl">persp&nbsp;&nbsp;·&nbsp;&nbsp;<span id="hudFps">60</span> fps</div>
+        <div class="hud hud--readout">
+          <div><b>ctrl_hand_IK</b></div>
+          <div>tx <span id="hudTx">0.00</span></div>
+          <div>ty <span id="hudTy">0.00</span></div>
+          <div>solver FABRIK · 14 jnt</div>
+        </div>
+      </div>
+
+      <div class="hero__content wrap">
+        <h1 class="hero__title" aria-label="Oguz Emir">
+          <span class="line" data-spring>Oguz</span>
+          <span class="line line--outline" data-spring>Emir</span>
+        </h1>
+        <p class="hero__role reveal">Technical Artist</p>
+        <p class="hero__lede reveal">I bring game characters to life in 2D and 2.5D: Spine rigs and animation, integrated into Unity with C# tools the team can tune. When a project needs 3D, I rig and animate in Maya and Unreal too.</p>
+        <div class="hero__cta reveal">
+          <a class="btn btn--key" href="#work">See the work <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10m0 0l-4-4m4 4l4-4"/></svg></a>
+          <a class="btn btn--ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="rig-tools reveal" role="group" aria-label="Rig display layers">
+        <span class="rig-tools__label">display</span>
+        <button class="chip is-on" data-layer="skin" aria-pressed="true">Skin</button>
+        <button class="chip is-on" data-layer="joints" aria-pressed="true">Joints</button>
+        <button class="chip" data-layer="wire" aria-pressed="false">Wire</button>
+        <span class="rig-tools__hint">move the cursor, the rig follows</span>
+      </div>
+
+      <dl class="stats wrap">
+        <div class="stat reveal"><dt>game credits</dt><dd><span data-count="7">0</span></dd><small>PC &amp; mobile</small></div>
+        <div class="stat reveal"><dt>working since</dt><dd><span data-count="2017" data-from="1990">1990</span></dd></div>
+      </dl>
+    </section>
+
+    <!-- ░░ SH010 ABOUT ░░ -->
+    <section class="section about" id="about" data-key="About" data-shot="SH010">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-head__shot">SH010</span>
+          <h2>The character sheet</h2>
+          <span class="sec-head__range" data-range></span>
+        </header>
+
+        <div class="about__grid">
+          <figure class="portrait reveal">
+            <div class="portrait__frame">
+              <img src="img/web/profile.webp" alt="Portrait of Oguz Emir" width="1000" height="1000" loading="lazy">
+              
+            </div>
+          </figure>
+
+          <div class="panel outliner reveal">
+            <div class="panel__bar"><span>Outliner</span><span class="panel__dots"><i></i><i></i><i></i></span></div>
+            <ul class="tree">
+              <li><span class="t-ico t-ico--grp"></span>root</li>
+              <li class="d1"><span class="t-ico t-ico--jnt"></span>oguz_emir<span class="t-note">selected</span></li>
+              <li class="d2"><span class="t-ico t-ico--ctl"></span>role<span class="t-val">Technical Artist</span></li>
+              <li class="d2"><span class="t-ico t-ico--ctl"></span>focus<span class="t-val">Spine · Unity · 2D/2.5D</span></li>
+              <li class="d2"><span class="t-ico t-ico--ctl"></span>based_in<span class="t-val">Istanbul, TR</span></li>
+              <li class="d2"><span class="t-ico t-ico--ctl"></span>currently<span class="t-val">Paxie Games</span></li>
+              <li class="d2"><span class="t-ico t-ico--ctl"></span>studied<span class="t-val">Animation, Topkapi Uni.</span></li>
+                          </ul>
+          </div>
+
+          <div class="about__text reveal">
+            <p class="big">I sit where art meets engineering. Most days that means Spine: 2D and 2.5D rigs with clean mesh topology, animation with real weight and timing, and exports developers can drop straight into Unity.</p>
+            <p>In Unity I set up the Spine integration, prefabs and particle systems, and I write configurable C# tools so product and animation teams can tune game feel themselves. I care about the quality and optimization of every animation asset, and I work closely with programmers until the gameplay feels right.</p>
+            <p>I'm just as comfortable in 3D. I've shipped Maya rigs, Unreal animation systems and Python/MEL pipeline tools for Apex Legends, Rise Online World and V.O.L.T. The principles come first either way: anticipation, squash and stretch, arcs and spacing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ SH020 WORK ░░ -->
+    <section class="section work" id="work" data-key="Work" data-shot="SH020">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-head__shot">SH020</span>
+          <h2>Shots I've worked on</h2>
+          <span class="sec-head__range" data-range></span>
+        </header>
+
+        <div class="shots">
+          <article class="shot shot--tall reveal" style="--accent:#ffb23f">
+            <a class="shot__link" href="https://play.google.com/store/apps/details?id=com.pockethaven.roguelegend" target="_blank" rel="noopener" aria-label="Rogue Legend on Google Play"></a>
+            <div class="shot__media"><img src="img/web/rogue-legend.webp" alt="Rogue Legend key art" loading="lazy" style="object-position:50% 0%"></div>
+            <div class="shot__body">
+              <div class="shot__meta"><span>SH021</span><span>Oct 2025 – Jun 2026</span></div>
+              <h3>Rogue Legend</h3>
+              <p class="shot__kind">Mobile RPG · <b>1M+ downloads</b> · Freelance</p>
+              <p>2D and 2.5D animation in Spine with Unity integration, plus configurable C# tools the team uses to tune game feel.</p>
+              <ul class="tags"><li>Spine</li><li>Unity</li><li>C#</li></ul>
+              <div class="shot__stores">
+                <a href="https://play.google.com/store/apps/details?id=com.pockethaven.roguelegend" target="_blank" rel="noopener">Google Play ↗</a>
+                <a href="https://apps.apple.com/tr/app/rogue-legend-roguelike-rpg/id6754965520" target="_blank" rel="noopener">App Store ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="shot shot--wide reveal" style="--accent:#e0348f">
+            <a class="shot__link" href="https://store.steampowered.com/app/1172470/Apex_Legends/" target="_blank" rel="noopener" aria-label="Apex Legends on Steam"></a>
+            <div class="shot__media"><img src="img/web/apex-legends.webp" alt="Apex Legends key art" loading="lazy" style="object-position:60% 30%"></div>
+            <div class="shot__body">
+              <div class="shot__meta"><span>SH022</span><span>Oct 2025 – Mar 2026</span></div>
+              <h3>Apex Legends</h3>
+              <p class="shot__kind">AAA battle royale · <b>100M+ players</b> · Freelance</p>
+              <p>Character rigging in Maya: IK/FK systems and control rigs that animators like to work with.</p>
+              <ul class="tags"><li>Maya</li><li>IK/FK</li><li>Control rigs</li></ul>
+            </div>
+          </article>
+
+          <article class="shot reveal" style="--accent:#c9b28a">
+            <a class="shot__link" href="https://riseonlineworld.com/" target="_blank" rel="noopener" aria-label="Rise Online World website"></a>
+            <div class="shot__media"><img src="img/web/rise-online.webp" alt="Rise Online World logo" loading="lazy"></div>
+            <div class="shot__body">
+              <div class="shot__meta"><span>SH023</span><span>Sep 2023 – Feb 2026</span></div>
+              <h3>Rise Online World</h3>
+              <p class="shot__kind">Released PC MMORPG</p>
+              <p>Humanoid, quadruped and creature rigs, in-game and cinematic animation, automated retargeting.</p>
+              <ul class="tags"><li>Maya</li><li>UE</li><li>Retargeting</li></ul>
+            </div>
+          </article>
+
+          <article class="shot reveal" style="--accent:#e2263b">
+            <a class="shot__link" href="https://store.steampowered.com/app/3413390/VOLT/" target="_blank" rel="noopener" aria-label="V.O.L.T on Steam"></a>
+            <div class="shot__media"><img src="img/web/volt.webp" alt="V.O.L.T key art" loading="lazy"></div>
+            <div class="shot__body">
+              <div class="shot__meta"><span>SH024</span><span>Jun 2024 – Feb 2026</span></div>
+              <h3>V.O.L.T</h3>
+              <p class="shot__kind">Upcoming PC hero shooter</p>
+              <p>Character and weapon rigging, UE5 Animation Blueprints and Blend Spaces, and multi-rig automation tools in Python and MEL.</p>
+              <ul class="tags"><li>UE5</li><li>Python</li><li>MEL</li></ul>
+            </div>
+          </article>
+
+          <article class="shot reveal" style="--accent:#c98a3c">
+            <a class="shot__link" href="https://store.steampowered.com/app/4839400/Old_War_Demo/" target="_blank" rel="noopener" aria-label="Old War on Steam"></a>
+            <div class="shot__media"><img src="img/web/old-war.webp" alt="Old War: Legacy of Alp logo" loading="lazy"></div>
+            <div class="shot__body">
+              <div class="shot__meta"><span>SH025</span><span>Jun 2023 – Sep 2023</span></div>
+              <h3>Old War</h3>
+              <p class="shot__kind">Upcoming PC game</p>
+              <p>In-game and cinematic animation, humanoid and creature rigs, retargeting automation and trailer editing.</p>
+              <ul class="tags"><li>Animation</li><li>Rigging</li><li>Trailer</li></ul>
+            </div>
+          </article>
+
+          <article class="shot reveal" style="--accent:#b3162b">
+            <a class="shot__link" href="https://store.steampowered.com/app/2067260/Reflection_The_Greed/" target="_blank" rel="noopener" aria-label="Reflection: The Greed on Steam"></a>
+            <div class="shot__media"><img src="img/web/reflection.webp" alt="Reflection: The Greed key art" loading="lazy"></div>
+            <div class="shot__body">
+              <div class="shot__meta"><span>SH026</span><span>Dec 2021 – Apr 2023</span></div>
+              <h3>Reflection: The Greed</h3>
+              <p class="shot__kind">Released PC horror</p>
+              <p>In-game and cinematic animation, humanoid and creature rigs, retargeting automation and trailer editing.</p>
+              <ul class="tags"><li>Maya</li><li>Cinematics</li><li>Editing</li></ul>
+            </div>
+          </article>
+
+          <article class="shot reveal" style="--accent:#9be22d">
+            <a class="shot__link" href="https://www.youtube.com/watch?v=9QSz9F0Pop0" target="_blank" rel="noopener" aria-label="Slime Spy trailer on YouTube"></a>
+            <div class="shot__media"><img src="img/web/slime-spy.webp" alt="Slime Spy: Ninja Assassin comic-style art" loading="lazy"></div>
+            <div class="shot__body">
+              <div class="shot__meta"><span>SH027</span><span>Dec 2021 – May 2022</span></div>
+              <h3>Slime Spy: Ninja Assassin</h3>
+              <p class="shot__kind">Casual mobile · <b>100K+ downloads</b></p>
+              <p>Character and prop rigs, gameplay and intro animations, attachment rigs and sockets.</p>
+              <ul class="tags"><li>Rigging</li><li>Gameplay anim</li></ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ SH030 DOPESHEET ░░ -->
+    <section class="section dope" id="dopesheet" data-key="Experience" data-shot="SH030">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-head__shot">SH030</span>
+          <h2>Career dopesheet</h2>
+          <span class="sec-head__range" data-range></span>
+        </header>
+        <p class="sec-lede reveal">Each track is a job and each key is a start or end date. Click a track to expand it.</p>
+
+        <div class="sheet reveal" id="sheet" data-from="2017-06" data-to="2026-12">
+          <div class="sheet__ruler" id="sheetRuler" aria-hidden="true"></div>
+          <div class="sheet__now" id="sheetNow" aria-hidden="true"><span>now</span></div>
+
+          <div class="track" data-start="2026-06" data-end="now">
+            <button class="track__head" aria-expanded="false">
+              <span class="track__co">Paxie Games</span><span class="track__role">Game Animator</span>
+              <span class="track__date">Jun 2026 – Present</span>
+            </button>
+            <div class="track__lane"><span class="track__bar"></span></div>
+            <div class="track__body"><p>Fluid, responsive animation in Unity and Spine. I own the quality and optimization of animation assets, keep iterating so everything stays consistent with the game, and work closely with programmers on the feel of gameplay. When an animation problem needs a creative art fix, that's usually my job.</p><span class="track__loc">Istanbul, Turkey</span></div>
+          </div>
+
+          <div class="track track--free" data-start="2025-10" data-end="2026-06">
+            <button class="track__head" aria-expanded="false">
+              <span class="track__co">Rogue Legend</span><span class="track__role">Freelance · 2D Animator</span>
+              <span class="track__date">Oct 2025 – Jun 2026</span>
+            </button>
+            <div class="track__lane"><span class="track__bar"></span></div>
+            <div class="track__body"><p>2D and 2.5D animation in Spine for a mobile RPG with 1M+ downloads, plus the Unity integration and configurable C# tools the team uses to tune game feel.</p><span class="track__loc">Remote</span></div>
+          </div>
+
+          <div class="track track--free" data-start="2025-10" data-end="2026-03">
+            <button class="track__head" aria-expanded="false">
+              <span class="track__co">Apex Legends</span><span class="track__role">Freelance · Character Rigger</span>
+              <span class="track__date">Oct 2025 – Mar 2026</span>
+            </button>
+            <div class="track__lane"><span class="track__bar"></span></div>
+            <div class="track__body"><p>Character rigging in Maya for a 100M+ player battle royale: IK/FK systems and control rigs built for animators.</p><span class="track__loc">Remote</span></div>
+          </div>
+
+          <div class="track" data-start="2023-06" data-end="2026-02">
+            <button class="track__head" aria-expanded="false">
+              <span class="track__co">Rokogame Studios</span><span class="track__role">Technical Animator</span>
+              <span class="track__date">Jun 2023 – Feb 2026</span>
+            </button>
+            <div class="track__lane"><span class="track__bar"></span></div>
+            <div class="track__body"><p>Technical Animator on an upcoming FPS hero shooter (V.O.L.T) and on Rise Online World. 3D character animation, complex character, weapon and skill rigs, and scripting in Autodesk Maya (Python &amp; MEL) and Unreal Engine.</p><span class="track__loc">Istanbul, Turkey</span></div>
+          </div>
+
+          <div class="track" data-start="2022-02" data-end="2023-02">
+            <button class="track__head" aria-expanded="false">
+              <span class="track__co">Warner Bros. Discovery Turkey</span><span class="track__role">3D Generalist</span>
+              <span class="track__date">Feb 2022 – Feb 2023</span>
+            </button>
+            <div class="track__lane"><span class="track__bar"></span></div>
+            <div class="track__body"><p>Handled animation, environment design, modeling, lighting and visual effects in Blender for a documentary project that was later cancelled.</p><span class="track__loc">Istanbul, Turkey</span></div>
+          </div>
+
+          <div class="track" data-start="2021-10" data-end="2023-05">
+            <button class="track__head" aria-expanded="false">
+              <span class="track__co">Zonex Entertainment Studios</span><span class="track__role">Technical Animator</span>
+              <span class="track__date">Oct 2021 – May 2023</span>
+            </button>
+            <div class="track__lane"><span class="track__bar"></span></div>
+            <div class="track__body"><p>3D animation, rigging and modeling for Reflection: The Greed, plus video editing and social media.</p><span class="track__loc">Istanbul, Turkey</span></div>
+          </div>
+
+          <div class="track" data-start="2021-09" data-end="2022-03">
+            <button class="track__head" aria-expanded="false">
+              <span class="track__co">Demikro Technology</span><span class="track__role">Intern Animator</span>
+              <span class="track__date">Sep 2021 – Mar 2022</span>
+            </button>
+            <div class="track__lane"><span class="track__bar"></span></div>
+            <div class="track__body"><p>University internship in 2D and 3D animation production. I animated in both pipelines and learned how a professional studio runs day to day.</p><span class="track__loc">Istanbul, Turkey</span></div>
+          </div>
+
+          <div class="track" data-start="2017-07" data-end="2019-08">
+            <button class="track__head" aria-expanded="false">
+              <span class="track__co">Big Media &amp; Technology</span><span class="track__role">Intern Motion Designer</span>
+              <span class="track__date">Jul 2017 – Aug 2019</span>
+            </button>
+            <div class="track__lane"><span class="track__bar"></span></div>
+            <div class="track__body"><p>Video editing, motion graphics and graphic design for LEVEL and CHIP magazines.</p><span class="track__loc">Istanbul, Turkey</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ SH040 SKILLS ░░ -->
+    <section class="section skills" id="skills" data-key="Skills" data-shot="SH040">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-head__shot">SH040</span>
+          <h2>Channel box</h2>
+          <span class="sec-head__range" data-range></span>
+        </header>
+
+        <div class="channels">
+          <article class="channel reveal">
+            <div class="channel__top"><span class="mono">spine.2d</span><svg class="curve" viewBox="0 0 120 40" data-curve="0,20 15,34 35,4 55,26 75,14 95,21 120,19"><path/></svg></div>
+            <h3>Spine</h3>
+            <p>2D and 2.5D rigging and animation with optimized mesh topology, clean exports for developers and smooth Unity integration. Movement, anticipation, squash and stretch, and the rest of the principles.</p>
+          </article>
+          <article class="channel reveal">
+            <div class="channel__top"><span class="mono">unity.runtime</span><svg class="curve" viewBox="0 0 120 40" data-curve="0,36 20,36 60,4 100,12 120,10"><path/></svg></div>
+            <h3>Unity</h3>
+            <p>Particle systems, Spine integration and prefab setup. Configurable C# tools that let product and animation teams tune game feel. I own the quality and optimization of animation assets and work closely with programmers.</p>
+          </article>
+          <article class="channel reveal">
+            <div class="channel__top"><span class="mono">maya.blender</span><svg class="curve" viewBox="0 0 120 40" data-curve="0,36 30,34 50,6 70,4 120,20"><path/></svg></div>
+            <h3>Maya &amp; Blender</h3>
+            <p>Production-ready rigs for characters, creatures, weapons and vehicles, with IK/FK systems. Gameplay and cinematic animation, mocap cleanup and UE-compatible skeletons.</p>
+          </article>
+          <article class="channel reveal">
+            <div class="channel__top"><span class="mono">unreal.engine</span><svg class="curve" viewBox="0 0 120 40" data-curve="0,30 25,8 55,30 85,8 120,24"><path/></svg></div>
+            <h3>Unreal Engine</h3>
+            <p>Animation Blueprints, Blend Spaces, Control Rig, IK Retargeting and Sequencer, for gameplay and cinematics.</p>
+          </article>
+          <article class="channel reveal">
+            <div class="channel__top"><span class="mono">python.mel</span><svg class="curve" viewBox="0 0 120 40" data-curve="0,34 40,34 42,8 80,8 82,30 120,30"><path/></svg></div>
+            <h3>Python &amp; MEL</h3>
+            <p>Pipeline and automation tools for Maya and Unreal: auto-rigging, batch retargeting and export workflows.</p>
+          </article>
+          <article class="channel channel--list reveal">
+            <div class="channel__top"><span class="mono">misc.attrs</span></div>
+            <h3>Also in the toolbox</h3>
+            <ul class="tags tags--loose">
+              <li>Control Rig</li><li>IK Retargeting</li><li>Mocap cleanup</li><li>Blend Spaces</li><li>Sequencer</li><li>C#</li><li>Particle FX</li><li>Motion graphics</li><li>Video editing</li><li>Lighting</li><li>Modeling</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ SH050 PLAYGROUND ░░ -->
+    <section class="section play" id="playground" data-key="Playground" data-shot="SH050">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-head__shot">SH050</span>
+          <h2>Timing is the whole job</h2>
+          <span class="sec-head__range" data-range></span>
+        </header>
+        <p class="sec-lede reveal">This is a small graph editor. Drag the two tangent handles and watch how the spacing changes the ball. Same 24 frames, very different feel.</p>
+
+        <div class="ge reveal">
+          <div class="panel ge__graph">
+            <div class="panel__bar"><span>Graph Editor · translateX</span><span class="mono ge__code" id="geCode">cubic-bezier(.65,0,.35,1)</span></div>
+            <svg id="geSvg" viewBox="-12 -40 224 280" aria-label="Animation curve editor. Drag the orange handles.">
+              <g class="ge-grid" id="geGrid"></g>
+              <path class="ge-tan" id="geTan1"/><path class="ge-tan" id="geTan2"/>
+              <path class="ge-curve" id="geCurve"/>
+              <g id="geTicks"></g>
+              <circle class="ge-key" cx="0" cy="200" r="4.5"/><circle class="ge-key" cx="200" cy="0" r="4.5"/>
+              <circle class="ge-head" id="geHead" r="3.5"/>
+              <circle class="ge-handle" id="geH1" r="7" tabindex="0" role="slider" aria-label="Out tangent"/>
+              <circle class="ge-handle" id="geH2" r="7" tabindex="0" role="slider" aria-label="In tangent"/>
+            </svg>
+          </div>
+          <div class="panel ge__stage">
+            <div class="panel__bar"><span>Viewport · ball_ctrl</span><span class="mono">f <span id="geFrame">01</span>/24</span></div>
+            <canvas id="geCanvas" aria-label="Ball animated with the curve"></canvas>
+            <div class="ge__controls">
+              <div class="seg" role="group" aria-label="Curve presets">
+                <button class="chip" data-preset="0,0,1,1">Linear</button>
+                <button class="chip" data-preset=".55,0,1,.45">Ease in</button>
+                <button class="chip" data-preset="0,.55,.45,1">Ease out</button>
+                <button class="chip is-on" data-preset=".65,0,.35,1">Ease in-out</button>
+                <button class="chip" data-preset=".34,1.4,.64,1">Overshoot</button>
+                <button class="chip" data-preset=".6,-.28,.735,.045">Anticipate</button>
+              </div>
+              <div class="seg" role="group" aria-label="Display options">
+                <button class="chip is-on" data-opt="onion" aria-pressed="true">Onion skin</button>
+                <button class="chip is-on" data-opt="squash" aria-pressed="true">Squash &amp; stretch</button>
+                <button class="chip" data-opt="arc" aria-pressed="false">Arc</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ SH060 EDUCATION & AWARDS ░░ -->
+    <section class="section extra" id="extra" data-key="Awards" data-shot="SH060">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-head__shot">SH060</span>
+          <h2>Education &amp; awards</h2>
+          <span class="sec-head__range" data-range></span>
+        </header>
+        <div class="extra__grid">
+          <a class="card card--edu reveal" href="https://www.topkapi.edu.tr/" target="_blank" rel="noopener">
+            <span class="card__kicker mono">education</span>
+            <h3>Topkapi University <span class="arrow">↗</span></h3>
+            <p class="card__sub">Animation</p>
+            <p>I already knew the principles of animation before university. I picked the department to meet people from the industry. There, a team of five of us built two computer games for the school, one month per game.</p>
+          </a>
+          <a class="card reveal" href="https://play.google.com/store/apps/details?id=com.Ayvansaray.TopragaUmutOl&hl=tr&gl=US" target="_blank" rel="noopener">
+            <span class="card__kicker mono">award · aug 2021</span>
+            <h3>Toprak İçin Koş <span class="arrow">↗</span></h3>
+            <p class="card__sub">School project</p>
+            <p>A mobile game we developed for Toprak, a patient with Superior Mesenteric Artery (SMA) syndrome. It supported his recovery and gave him something to be excited about.</p>
+          </a>
+          <a class="card reveal" href="https://play.google.com/store/apps/details?id=com.Ayvansarayniversitesi.BirFidanBirNefes" target="_blank" rel="noopener">
+            <span class="card__kicker mono">award · aug 2021</span>
+            <h3>Bir Fidan Bir Nefes <span class="arrow">↗</span></h3>
+            <p class="card__sub">Social responsibility project</p>
+            <p>A project to raise awareness about forest fires, aimed at educating the community and protecting nature.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ SH070 CONTACT ░░ -->
+    <section class="section contact" id="contact" data-key="Contact" data-shot="SH070">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-head__shot">SH070</span>
+          <h2>Final frame</h2>
+          <span class="sec-head__range" data-range></span>
+        </header>
+
+        <h2 class="contact__title reveal">Got a character<br>that needs to <em data-spring>move?</em></h2>
+
+        <div class="contact__mail reveal">
+          <a href="mailto:oguzemir.2210@gmail.com" class="mail">oguzemir.2210@gmail.com</a>
+          <button class="btn btn--ghost btn--sm" id="copyMail" data-copy="oguzemir.2210@gmail.com">Copy</button>
+        </div>
+
+        <div class="contact__grid">
+          <div class="contact__col reveal">
+            <span class="mono label">direct</span>
+            <span>Istanbul, Turkey</span>
+            <a class="btn btn--key btn--sm" href="cv/Oguz_EMIR_Resume.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+          </div>
+          <div class="contact__col reveal">
+            <span class="mono label">elsewhere</span>
+            <a href="https://www.linkedin.com/in/oguzxemir/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://www.artstation.com/oguzemir" target="_blank" rel="noopener">ArtStation ↗</a>
+            <a href="https://www.instagram.com/physicsanim" target="_blank" rel="noopener">Instagram ↗</a>
+            <a href="https://www.youtube.com/c/Hexae/videos" target="_blank" rel="noopener">YouTube ↗</a>
+          </div>
+          <div class="contact__col reveal">
+            <span class="mono label">free stuff</span>
+            <a href="https://physicss.gumroad.com/" target="_blank" rel="noopener">Free rigs on Gumroad ↗</a>
+            <span class="muted">Grab one, animate something, and tag me.</span>
+          </div>
+        </div>
+
+        <footer class="foot">
+          <span>© <span id="year">2026</span> Oguz Emir</span>
+          <span class="mono">end of shot · playback 24 fps</span>
+          <a href="#hero" class="mono">back to frame 0 ↑</a>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- ░░ TIMELINE HUD ░░ -->
+  <div class="timebar" id="timebar" role="region" aria-label="Page timeline">
+    <button class="tb-play" id="tbPlay" aria-label="Play the page (Space)" title="Play / pause (Space)">
+      <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>
+      <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h3v11H4zM9 2.5h3v11H9z"/></svg>
+    </button>
+    <button class="tb-speed mono" id="tbSpeed" aria-label="Playback speed" title="Playback speed">1×</button>
+    <div class="tb-ruler" id="tbRuler" aria-label="Scrub the page" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+      <div class="tb-ticks" id="tbTicks"></div>
+      <div class="tb-keys" id="tbKeys"></div>
+      <div class="tb-head" id="tbHead"><span class="tb-head__num mono" id="tbHeadNum">0</span></div>
+    </div>
+    <div class="tb-info mono">
+      <span class="tb-shot" id="tbShot">SH000 · Hero</span>
+      <span class="tb-frame"><span id="tbFrame">0000</span><span class="muted">/<span id="tbTotal">0720</span></span></span>
+    </div>
+    <span class="tb-hint mono" aria-hidden="true">space ▶ · , . keys</span>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js?v=4.4" defer></script>
 </body>
 </html>
